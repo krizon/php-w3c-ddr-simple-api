@@ -9,11 +9,11 @@ interface PropertyValuesInterface
     /**
      * @return PropertyValueInterface[]
      */
-    public function getAll();
+    function getAll();
 
     /**
      * @param PropertyRefInterface $prop
      * @return PropertyRefInterface
      */
-    public function getValue(PropertyRefInterface $prop);
+    function getValue(PropertyRefInterface $prop);
 }

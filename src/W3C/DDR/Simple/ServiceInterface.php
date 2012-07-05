@@ -2,67 +2,90 @@
 
 namespace W3C\DDR\Simple;
 
+use W3C\DDR\Simple\Exception\InitializationException;
+use W3C\DDR\Simple\Exception\NameException;
+
 interface ServiceInterface
 {
-    public function initialize();
+    const NOT_SUPPORTED = "__NOT_SUPPORTED";
 
     /**
+     * @abstract
+     * @param string $defaultVocabularyIRI
+     * @param $props
+     * @return mixed
+     */
+    function initialize($defaultVocabularyIRI, $props);
+
+    /**
+     * @abstract
      * @return string
      */
-    public function getDataVersion();
+    function getImplementationVersion();
 
     /**
+     * @abstract
      * @return string
      */
-    public function getImplementationVersion();
+    function getDataVersion();
 
     /**
+     * @abstract
      * @return PropertyRefInterface[]
      */
-    public function listPropertyRefs();
+    function listPropertyRefs();
 
     /**
+     * @abstract
      * @param EvidenceInterface $evidence
-     * @param string|PropertyRefInterface|PropertyNameInterface $prop
+     * @param PropertyRefInterface $propertyRef
+     * @param PropertyNameInterface $propertyName
+     * @param null|string $localPropertyName
      * @param null|string $localAspectName
      * @param null|string $vocabularyIRI
      * @return PropertyValueInterface
-     *
-     * @todo how to port java method overloading declarations to php declaration (see phpcr)
-     * @note changed interface
      */
-    public function getPropertyValue(EvidenceInterface $evidence, $property, $localAspectName = null, $vocabularyIRI = null);
+    function getPropertyValue
+    (
+        EvidenceInterface $evidence,
+        PropertyRefInterface $propertyRef = null ,
+        PropertyNameInterface $propertyName = null,
+        $localPropertyName = null,
+        $localAspectName = null,
+        $vocabularyIRI = null
+    );
 
     /**
+     * @abstract
      * @param EvidenceInterface $evidence
-     * @param null|string|PropertyRefInterface $propRefOrLocalAspectName
+     * @param array $propertyRefs
+     * @param null|string $localAspectName
      * @param null|string $vocabularyIRI
      * @return PropertyValuesInterface
-     *
-     * @todo how to port java method overloading declarations to php declaration (see phpcr)
-     * @note changed interface
      */
-    public function getPropertyValues(EvidenceInterface $evidence, $propRefOrLocalAspectName = null, $vocabularyIRI = null);
+    function getPropertyValues(EvidenceInterface $evidence, array $propertyRefs = null, $localAspectName = null, $vocabularyIRI = null);
 
     /**
-     * @param string $map
-     * @return EvidenceInterface
-     */
-    public function newHTTPEvidence($map);
-
-    /**
-     * @param string $localPropertyName
+     * @abstract
+     * @param $localPropertyName
      * @param null|string $vocabularyIRI
+     * @param null|string $localPropertyName
      * @return PropertyNameInterface
      */
-    public function newPropertyName($localPropertyName, $vocabularyIRI = null);
+    function newPropertyName($localPropertyName, $vocabularyIRI = null, $localPropertyName = null);
 
     /**
-     * @param string|PropertyNameInterface $propertyName
+     * @abstract
+     * @param PropertyNameInterface $propertyName
      * @param null|string $localAspectName
      * @return PropertyRefInterface
-     *
-     * @note changed interface
      */
-    public function newPropertyRef($propertyName, $localAspectName = null);
+    function newPropertyRef(PropertyNameInterface $propertyName, $localAspectName = null);
+
+    /**
+     * @abstract
+     * @param null|string $map
+     * @return EvidenceInterface
+     */
+    function newHTTPEvidence($map = null);
 }
