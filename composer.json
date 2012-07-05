@@ -1,0 +1,10 @@
+{
+    "name": "krizon/php-w3c-ddr-simple-api",
+    "description": "PHP port of the W3C Device Description Repository Simple API",
+    "authors": [
+        {
+            "name": "Kristian Zondervan",
+            "email": "kristian.zondervan@gmail.com"
+        }
+    ]
+}
