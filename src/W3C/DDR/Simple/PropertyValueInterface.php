@@ -4,21 +4,21 @@ namespace W3C\DDR\Simple;
 
 interface PropertyValueInterface
 {
-    public function getDouble();
+    function getDouble();
 
-    public function getLong();
+    function getLong();
 
-    public function getBoolean();
+    function getBoolean();
 
-    public function getInteger();
+    function getInteger();
 
-    public function getEnumeration();
+    function getEnumeration();
 
-    public function getFloat();
+    function getFloat();
 
-    public function getPropertyRef();
+    function getPropertyRef();
 
-    public function getString();
+    function getString();
 
-    public function exists();
+    function exists();
 }
