@@ -6,5 +6,8 @@
             "name": "Kristian Zondervan",
             "email": "kristian.zondervan@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": { "W3C\\DDR\\Simple\\": "src/" }
+    }
 }
