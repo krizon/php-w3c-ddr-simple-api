@@ -15,25 +15,25 @@ interface ServiceInterface
      * @param $props
      * @return mixed
      */
-    function initialize($defaultVocabularyIRI, $props);
+    public function initialize($defaultVocabularyIRI, $props);
 
     /**
      * @abstract
      * @return string
      */
-    function getImplementationVersion();
+    public function getImplementationVersion();
 
     /**
      * @abstract
      * @return string
      */
-    function getDataVersion();
+    public function getDataVersion();
 
     /**
      * @abstract
      * @return PropertyRefInterface[]
      */
-    function listPropertyRefs();
+    public function listPropertyRefs();
 
     /**
      * @abstract
@@ -45,7 +45,7 @@ interface ServiceInterface
      * @param null|string $vocabularyIRI
      * @return PropertyValueInterface
      */
-    function getPropertyValue
+    public function getPropertyValue
     (
         EvidenceInterface $evidence,
         PropertyRefInterface $propertyRef = null ,
@@ -63,7 +63,7 @@ interface ServiceInterface
      * @param null|string $vocabularyIRI
      * @return PropertyValuesInterface
      */
-    function getPropertyValues(EvidenceInterface $evidence, array $propertyRefs = null, $localAspectName = null, $vocabularyIRI = null);
+    public function getPropertyValues(EvidenceInterface $evidence, array $propertyRefs = null, $localAspectName = null, $vocabularyIRI = null);
 
     /**
      * @abstract
@@ -72,7 +72,7 @@ interface ServiceInterface
      * @param null|string $localPropertyName
      * @return PropertyNameInterface
      */
-    function newPropertyName($localPropertyName, $vocabularyIRI = null, $localPropertyName = null);
+    public function newPropertyName($localPropertyName, $vocabularyIRI = null, $localPropertyName = null);
 
     /**
      * @abstract
@@ -80,12 +80,12 @@ interface ServiceInterface
      * @param null|string $localAspectName
      * @return PropertyRefInterface
      */
-    function newPropertyRef(PropertyNameInterface $propertyName, $localAspectName = null);
+    public function newPropertyRef(PropertyNameInterface $propertyName, $localAspectName = null);
 
     /**
      * @abstract
      * @param null|string $map
      * @return EvidenceInterface
      */
-    function newHTTPEvidence($map = null);
+    public function newHTTPEvidence($map = null);
 }

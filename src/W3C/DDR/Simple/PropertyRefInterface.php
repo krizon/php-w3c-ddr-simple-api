@@ -6,9 +6,9 @@ interface PropertyRefInterface
 {
     const NULL_ASPECT = '__NULL';
 
-    function getLocalPropertyName();
+    public function getLocalPropertyName();
 
-    function getAspectName();
+    public function getAspectName();
 
-    function getNamespace();
+    public function getNamespace();
 }

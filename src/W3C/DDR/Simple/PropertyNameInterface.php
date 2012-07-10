@@ -4,7 +4,7 @@ namespace W3C\DDR\Simple;
 
 interface PropertyNameInterface
 {
-    function getLocalPropertyName();
+    public function getLocalPropertyName();
 
-    function getNamespace();
+    public function getNamespace();
 }
