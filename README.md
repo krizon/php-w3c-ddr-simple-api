@@ -10,8 +10,7 @@ This set of interfaces is meant to implement the W3C DDR Simple API in PHP. Sinc
 typed languages and PHP is a loosely typed language we made some changes for the PHP interfaces. We also tried to
 apply PSR-1 and PSR-2 coding standards and PHP best practices.
 
-List of changes
-***************
+#### List of changes
 
     * Removed the PropertyValue interface since this interface is not relevant for a loosely typed language;
     * Suffixed al interfaces with ```Interface```;
