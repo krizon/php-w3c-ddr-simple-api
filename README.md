@@ -12,7 +12,6 @@ apply PSR-1 and PSR-2 coding standards and PHP best practices.
 
 #### List of changes
 
-    * Removed the PropertyValue interface since this interface is not relevant for a loosely typed language;
     * Suffixed al interfaces with ```Interface```;
     * PHP does not support method overloading so overloaded methods in the original interfaces are merged in one method
     for this case;
